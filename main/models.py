@@ -10,17 +10,41 @@ class Players(models.Model):
 
 class Room(models.Model):
   name = models.CharField(max_length=50)
-  season_id = models.IntegerField()
-  left_id = models.IntegerField()
-  right_id = models.IntegerField()
-  up_id = models.IntegerField()
-  down_id = models.IntegerField()
-  outside_id = models.IntegerField()
-  inside_id = models.IntegerField()
-  item_id = models.IntegerField()
-  top_tile = models.IntegerField()
-  bottom_tile = models.IntegerField()
+  season_id = models.IntegerField(default=0)
+  left_id = models.IntegerField(default=0)
+  right_id = models.IntegerField(default=0)
+  up_id = models.IntegerField(default=0)
+  down_id = models.IntegerField(default=0)
+  outside_id = models.IntegerField(default=0)
+  inside_id = models.IntegerField(default=0)
+  item_id = models.IntegerField(default=0)
+  top_tile = models.IntegerField(default=0)
+  bottom_tile = models.IntegerField(default=0)
 
+  def connectRooms(self, destinationRoom, direction):
+    destinationRoomID = destinationRoom.id
+    try:
+      destinationRoom = Room.objects.get(id=destinationRoomID)
+    except Room.DoesNotExist:
+      print("That room does not exist")
+    else:
+      if direction == "up":
+        self.up_id = destinationRoomID
+      elif direction == "down":
+        self.down_id = destinationRoomID
+      elif direction == "left":
+        self.left_id = destinationRoomID
+      elif direction == "right":
+        self.right_id = destinationRoomID
+      elif direction == "inside":
+        self.inside_id = destinationRoomID
+      elif direction == "outside":
+        self.outside_id = destinationRoomID
+      else:
+        print("Invalid direction")
+        return
+      self.save()
+  
 class Items(models.Model):
   season_id = models.IntegerField()
   name = models.CharField(max_length=50)
