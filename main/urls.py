@@ -1,7 +1,7 @@
 from rest_framework import routers
-from .api import MainViewSet
+from .api import PlayersViewSet
 
 router = routers.DefaultRouter()
-router.register('api/main', MainViewSet, 'main')
+router.register('api/players', PlayersViewSet, 'players')
 
 urlpatterns = router.urls

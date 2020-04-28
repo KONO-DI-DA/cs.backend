@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from main.models import Main
+from main.models import Players, Room, Items, Season
 
-class MainSerializer(serializers.ModelSerializer):
+class PlayersSerializer(serializers.ModelSerializer):
   class Meta:
-    model = Main
+    model = Players
     fields = '__all__'
