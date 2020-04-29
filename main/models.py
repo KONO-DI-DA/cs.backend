@@ -48,7 +48,7 @@ class Room(models.Model):
 class Items(models.Model):
   season_id = models.IntegerField()
   name = models.CharField(max_length=50)
-  description = models.CharField(max_length=50)
+  description = models.CharField(max_length=200)
 
 class Season(models.Model):
   name = models.CharField(max_length=50)
