@@ -5,7 +5,7 @@ from django.db import migrations
 def seed_seas_items(apps, schema_editor):
     Season = apps.get_model('main', 'Season')
     Items = apps.get_model('main', 'Items')
-    items=[(1, 'Christmas Tree', 'A decorative tree fo celebrating a holiday.'), (2, 'Egg', 'A Colorfully died egg.'), (3, 'Fireworks', 'Hehe, firework go boom'), (4, 'Pumpkin', 'A pumpkin to make all of your delicious seasonal recipes.')]
+    items=[(1, 'Christmas Tree', 'A decorative tree fo celebrating a holiday.'), (2, 'Egg', 'A Colorfully died egg.'), (3, 'Fireworks', 'Hehe, firework go boom'), (4, 'Pumpkin', 'Pumpkin for your delicious seasonal recipes.')]
     seasons = ['winter','spring','summer','fall']
     for i in seasons:
         season = Season(name=i, is_solved=False)
