@@ -89,6 +89,7 @@ Method | Endpoint | Description
 ------ | -------- | -----------
 POST | `api/players/` | creates a player and returns player info
 GET | `api/players` | returns a list of players for the user, should just be one player
+PUT | `api/players/{player_id}/` | updates player info
 
 #### Accepted Player Schema - POST
 
@@ -124,6 +125,29 @@ GET | `api/players` | returns a list of players for the user, should just be one
 }
 ```
 
+#### Accepted Player Schema - PUT
+
+```
+{
+  "id": 8,
+  "name": "testing",
+  "room_id": 22,
+  "item_id": 1,
+  "owner": 3
+}
+```
+
+##### Response Body
+
+```
+{
+  "id": 8,
+  "name": "testing",
+  "room_id": 22,
+  "item_id": 1,
+  "owner": 3
+}
+```
 
 ## Rooms
 
@@ -220,6 +244,7 @@ GET | `api/items` | returns all the item objects with info
 Method | Endpoint | Description
 ------ | -------- | -----------
 GET | `api/season` | returns all seasons, with name and is_solved (if item is placed into correct season)
+PUT | `api/season/{season_id}/` | updates season info
 
 ##### Response Body
 
@@ -236,4 +261,24 @@ GET | `api/season` | returns all seasons, with name and is_solved (if item is pl
     "is_solved": 0
   }
 ]
+```
+
+#### Accepted Season Schema - PUT
+
+```
+{
+  "id": 13,
+  "name": "winter",
+  "is_solved": 1
+}
+```
+
+##### Response Body
+
+```
+{
+  "id": 13,
+  "name": "winter",
+  "is_solved": 1
+}
 ```
